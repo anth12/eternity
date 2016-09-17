@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="Eternity.Views.Settings.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Eternity.Views.Settings"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="400">
+    <StackPanel Margin="10">
+        
+        <GroupBox Grid.Row="0" Header="Screenshot">
+            <StackPanel>
+                <Label>Record Screenshots</Label>
+                <controls:ToggleSwitch OnLabel="Enabled" OffLabel="Disabled" IsChecked="{Binding Model.ScreenshotsEnabled}" />
+    
+                <StackPanel IsEnabled="{Binding Model.ScreenshotsEnabled}">
+                    
+                    <Label Content="Screenshot Folder"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Text="{Binding Model.ScreenshotPath}" />
+                        <Button Content="..." Grid.Column="1" Command="{Binding ScreenshotFolderPickerCommand}" Style="{DynamicResource AccentedSquareButtonStyle}" />
+                    </Grid>
+                    
+                </StackPanel>
+
+
+                <Label>Screenshots Quality</Label>
+                <controls:SplitButton
+                    SelectedItem="{Binding Model.ScreenshotQuality}"
+                    ItemsSource="{Binding ScreenshotQualities}"
+                    ></controls:SplitButton>
+                
+            
+            </StackPanel>
+        </GroupBox>
+        
+        
+        
+
+        <Label Content="Default Svn path" Grid.Row="3" />
+        <TextBox Text="{Binding Model.DefaultSvnPath}" Grid.Row="4" />
+
+        <Label Content="Naming Convention" Grid.Row="5" />
+        <ComboBox x:Name="NamingConvention_ComboBox" SelectedValue="{Binding Model.NamingConvention}" Grid.Row="6"/>
+
+        <TextBlock Grid.Row="7" Text="{Binding Model.NamingConventionDescription}" TextWrapping="Wrap" MinWidth="200" />
+
+        <Label Content="Svn Servers" Grid.Row="8" />
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="9">
+            <StackPanel Orientation="Vertical">
+                <ItemsControl ItemsSource="{Binding Servers}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+                <Button Content="Add Server" Command="{Binding AddServerCommand}" Style="{DynamicResource SquareButtonStyle}" Grid.Column="1" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <Button Command="{Binding SaveAndCloseCommand}" Grid.Row="10" Style="{DynamicResource AccentedSquareButtonStyle}" HorizontalAlignment="Right" Margin="5" Content="Save" FontSize="16"></Button>
+    </StackPanel>
+</UserControl>

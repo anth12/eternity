@@ -1,0 +1,67 @@
+﻿<controls:MetroWindow x:Class="Eternity.Views.HomeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Eternity.Views"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:settings="clr-namespace:Eternity.Views.Settings"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+        mc:Ignorable="d"
+        Title="Time Keeper" Height="450" Width="800"
+        ShowIconOnTitleBar="True"
+        GlowBrush="#666"
+        >
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+
+            <Button Command="{Binding OpenSettingsCommand}" 
+                    ToolTip="Open ReVersion Application Settings"
+                    Content="Settings" />
+
+            <Button Command="{Binding AboutCommand}" 
+                    ToolTip="About ReVersion"
+                    Content="About" />
+
+            <Button Command="{Binding HelpCommand}" 
+                    ToolTip="Get help using Eternity"
+                    Content="Help" />
+
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+
+    <controls:MetroWindow.Flyouts>
+        <controls:FlyoutsControl>
+
+            <controls:Flyout Header="Settings" Position="Right" Width="400" IsOpen="{Binding Settings.IsActive}">
+
+                <settings:SettingsView DataContext="{Binding Settings}" Width="400"/>
+
+            </controls:Flyout>
+
+        </controls:FlyoutsControl>
+    </controls:MetroWindow.Flyouts>
+
+    <Grid Margin="50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions></Grid.RowDefinitions>
+        
+        <controls:Tile Content="Edit Projects" Title="" Background="#FF119EDA" Height="280" VerticalAlignment="Top"></controls:Tile>
+        <controls:Tile Content="26hrs" Title="Time logged this week" Background="#FF50634A" VerticalAlignment="Top"></controls:Tile>
+        <controls:Tile Content="5hrs" Title="Time logged today" Background="#FFA20025" Width="286" VerticalAlignment="Top"></controls:Tile>
+
+        <controls:Tile Content="" Title="Application breakdown" Background="#FF76608A" VerticalAlignment="Top"></controls:Tile>
+        <controls:Tile Content="" Title="Language breakdown" Background="#FFF0A30A" VerticalAlignment="Top"></controls:Tile>
+        <controls:Tile Title="Settings" Background="#CC647687" VerticalAlignment="Top">
+            <svgc:SvgViewbox Margin="20" Stretch="Uniform" Source="/Assets/Icons/settings.svg"/>
+        </controls:Tile>
+    </Grid>
+</controls:MetroWindow>
