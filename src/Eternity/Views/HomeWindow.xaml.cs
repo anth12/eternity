@@ -1,11 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
+﻿using System.Diagnostics;
 using System.Linq;
-using System.Windows;
-using System.Windows.Input;
 using MahApps.Metro.Controls;
-using Eternity.Utilities.Assets;
 
 namespace Eternity.Views
 {

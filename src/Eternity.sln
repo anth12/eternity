@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity", ".\Eternity\Eternity.csproj", "{8373E8BF-7B0B-4DB0-B8A4-D66A201F901E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity", "Eternity\Eternity.csproj", "{8373E8BF-7B0B-4DB0-B8A4-D66A201F901E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.Core", ".\Eternity.Core\Eternity.Core.csproj", "{FF967472-3C6B-4293-8915-8DDF2441C132}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.Core", "Eternity.Core\Eternity.Core.csproj", "{FF967472-3C6B-4293-8915-8DDF2441C132}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{EB6EEFE2-3294-4E32-9827-6FA2378E9C60}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

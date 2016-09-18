@@ -23,7 +23,9 @@ namespace Eternity
 
             var window = new HomeWindow();
 
-            window.DataContext = Container.Resolve<HomeViewModel>();
+            var viewModel = Container.Resolve<HomeViewModel>();
+            viewModel.Init();
+            window.DataContext = viewModel;
             window.Show();
 
             Application.Current.DispatcherUnhandledException += new DispatcherUnhandledExceptionEventHandler(AppDispatcherUnhandledException);
@@ -87,7 +89,8 @@ Do you want to continue?
 
             builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
                 .Where(t => t.Name.EndsWith("ViewModel"))
-                .AsSelf();
+                .AsSelf()
+                .SingleInstance();
 
             Container = builder.Build();
         }

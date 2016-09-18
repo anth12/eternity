@@ -12,15 +12,13 @@ using Eternity.Utilities.Commands;
 namespace Eternity.ViewModels
 {
     [ImplementPropertyChanged]
-    internal abstract class BaseViewModel<TModel> : INotifyPropertyChanged
+    internal abstract class BaseViewModel : INotifyPropertyChanged, IViewModel
     {
         protected BaseViewModel()
         {
             PropertyChanged += BaseViewModel_PropertyChanged;
             AttachEventCommands();
         }
-        
-        public TModel Model { get; set; }
         
         #region Command Helpers
 

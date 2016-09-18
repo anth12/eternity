@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Eternity.Views.Home.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Eternity.Views.Home"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <controls:Tile Content="5hrs" Title="Time logged today" Background="#FFA20025" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Command="{Binding CurrentDayCommand}"></controls:Tile>
+        <controls:Tile Content="26hrs" Title="Time logged this week" Background="#FF50634A" Grid.Column="5" Grid.Row="1" Command="{Binding CurrentWeekCommand}"></controls:Tile>
+        <controls:Tile Content="Edit Projects" Title="" Background="#FF119EDA" Grid.Column="7" Grid.Row="1" Grid.RowSpan="3" Command="{Binding ProjectsCommand}"></controls:Tile>
+
+        <controls:Tile Content="" Title="Application breakdown" Background="#FF76608A" Grid.Column="1" Grid.Row="3" Command="{Binding CurrentDayCommand}"></controls:Tile>
+        <controls:Tile Content="" Title="Language breakdown" Background="#FFF0A30A" Grid.Column="3" Grid.Row="3" Command="{Binding CurrentDayCommand}"></controls:Tile> 
+        <controls:Tile Title="Settings" Background="#CC647687" VerticalAlignment="Top" Grid.Column="5" Grid.Row="3" Command="{Binding SettingsCommand}">
+            <svgc:SvgViewbox Margin="20" Stretch="Uniform" Source="/Assets/Icons/settings.svg"/>
+        </controls:Tile>
+    </Grid>
+</UserControl>

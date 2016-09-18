@@ -3,24 +3,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Eternity.Views"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:settings="clr-namespace:Eternity.Views.Settings"
-        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+        xmlns:settings1="clr-namespace:Eternity.ViewModels.Settings"
+        xmlns:home="clr-namespace:Eternity.Views.Home"
+        xmlns:dashboard="clr-namespace:Eternity.ViewModels.Dashboard"
         mc:Ignorable="d"
         Title="Time Keeper" Height="450" Width="800"
-        ShowIconOnTitleBar="True"
+        ShowIconOnTitleBar="False"
+        Icon="/Eternity;component/Resources/Icon.ico"
         GlowBrush="#666"
         >
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type dashboard:DashboardViewModel}">
+            <home:DashboardView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type settings1:SettingsViewModel}">
+            <home:SettingsView />
+        </DataTemplate>
+
+        
+    </Window.Resources>
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
 
-            <Button Command="{Binding OpenSettingsCommand}" 
-                    ToolTip="Open ReVersion Application Settings"
-                    Content="Settings" />
+            <!--<Button Command="{Binding OpenSettingsCommand}" 
+                    ToolTip="Open Eternity Application Settings"
+                    Content="Settings" />-->
 
             <Button Command="{Binding AboutCommand}" 
-                    ToolTip="About ReVersion"
+                    ToolTip="About Eternity"
                     Content="About" />
 
             <Button Command="{Binding HelpCommand}" 
@@ -29,7 +41,7 @@
 
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
-
+    
     <controls:MetroWindow.Flyouts>
         <controls:FlyoutsControl>
 
@@ -42,26 +54,17 @@
         </controls:FlyoutsControl>
     </controls:MetroWindow.Flyouts>
 
-    <Grid Margin="50">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions></Grid.RowDefinitions>
-        
-        <controls:Tile Content="Edit Projects" Title="" Background="#FF119EDA" Height="280" VerticalAlignment="Top"></controls:Tile>
-        <controls:Tile Content="26hrs" Title="Time logged this week" Background="#FF50634A" VerticalAlignment="Top"></controls:Tile>
-        <controls:Tile Content="5hrs" Title="Time logged today" Background="#FFA20025" Width="286" VerticalAlignment="Top"></controls:Tile>
+    <Grid>
 
-        <controls:Tile Content="" Title="Application breakdown" Background="#FF76608A" VerticalAlignment="Top"></controls:Tile>
-        <controls:Tile Content="" Title="Language breakdown" Background="#FFF0A30A" VerticalAlignment="Top"></controls:Tile>
-        <controls:Tile Title="Settings" Background="#CC647687" VerticalAlignment="Top">
-            <svgc:SvgViewbox Margin="20" Stretch="Uniform" Source="/Assets/Icons/settings.svg"/>
-        </controls:Tile>
+
+        <!--<ItemsControl ItemsSource="{Binding ActiveViews}">
+        </ItemsControl>-->
+
+        <!--<ContentControl Content="{Binding ActiveView}">
+
+            </ContentControl>-->
+        <controls:TransitioningContentControl Content="{Binding ActiveView}">
+        </controls:TransitioningContentControl>
+
     </Grid>
 </controls:MetroWindow>

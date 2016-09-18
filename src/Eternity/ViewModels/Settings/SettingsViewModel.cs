@@ -11,15 +11,18 @@ namespace Eternity.ViewModels.Settings
     internal class SettingsViewModel : BaseViewModel<EternitySettings>
     {
         public SettingsViewModel()
-        { 
+        {
             // When IsActive is changed, reload the settings- this will 
             // revert any unsaved changes when closing the settings
-            OnPropertyChanged(nameof(IsActive), Load);
-
+            // OnPropertyChanged(nameof(IsActive), Load);
+            PropertyChanged += (sender, args) =>
+            {
+                // TODO auto-save
+            };
             ScreenshotQualities = Enum.GetValues(typeof(ScreenshotQuality)).OfType<ScreenshotQuality>();
         }
+        
 
-        public bool IsActive { get; set; }
         public IEnumerable<ScreenshotQuality> ScreenshotQualities { get; set; }
 
         #region Commands
@@ -30,7 +33,7 @@ namespace Eternity.ViewModels.Settings
         protected void SaveAndClose()
         {
             SettingsBootstrapper.Persist();
-            IsActive = false;
+            // IsActive = false;
         }
 
         protected void ScreenshotFolderPicker()
