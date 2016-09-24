@@ -35,7 +35,7 @@ namespace Eternity.ViewModels.Dashboard
         public void Projects()
         {
 
-            Parent.Navigate<ProjectsViewModel>();
+            //Parent.Navigate<ProjectsViewModel>();
         }
 
         public void Settings()

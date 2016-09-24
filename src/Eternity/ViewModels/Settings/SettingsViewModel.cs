@@ -5,12 +5,13 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using Eternity.Core.Settings;
 using Eternity.Core.Settings.Models;
+using Eternity.ViewModels.Home;
 
 namespace Eternity.ViewModels.Settings
 {
-    internal class SettingsViewModel : BaseViewModel<EternitySettings>
+    internal class SettingsViewModel : HomeChildScreen<EternitySettings>
     {
-        public SettingsViewModel()
+        public SettingsViewModel(HomeViewModel parent) : base(parent)
         {
             // When IsActive is changed, reload the settings- this will 
             // revert any unsaved changes when closing the settings

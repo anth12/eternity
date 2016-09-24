@@ -34,10 +34,11 @@ namespace Eternity.ViewModels.Home
         #region Commands
         public ICommand AboutCommand { get; set; }
         public ICommand HelpCommand { get; set; }
+        public ICommand PixelForgeCommand { get; set; }
         #endregion
 
         #region Event handlers
-        
+
         protected void About()
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -49,7 +50,12 @@ namespace Eternity.ViewModels.Home
         {
             Process.Start("https://github.com/anth12/Eternity/wiki");
         }
-        
+
+        protected void PixelForge()
+        {
+            Process.Start("http://thepixelforge.co.uk");
+        }
+
         #endregion
 
         public void Navigate<TViewModel>()

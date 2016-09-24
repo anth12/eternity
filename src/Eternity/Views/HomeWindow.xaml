@@ -14,23 +14,14 @@
         Icon="/Eternity;component/Resources/Icon.ico"
         GlowBrush="#666"
         >
-    <Window.Resources>
-        <DataTemplate DataType="{x:Type dashboard:DashboardViewModel}">
-            <home:DashboardView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type settings1:SettingsViewModel}">
-            <home:SettingsView />
-        </DataTemplate>
 
-        
-    </Window.Resources>
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
 
-            <!--<Button Command="{Binding OpenSettingsCommand}" 
-                    ToolTip="Open Eternity Application Settings"
-                    Content="Settings" />-->
-
+            <Button Command="{Binding PixelForgeCommand}" 
+                    ToolTip="Crafted @ The Pixel Forge"
+                    Content="Pixel Forge" />
+            
             <Button Command="{Binding AboutCommand}" 
                     ToolTip="About Eternity"
                     Content="About" />
@@ -42,17 +33,6 @@
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
     
-    <controls:MetroWindow.Flyouts>
-        <controls:FlyoutsControl>
-
-            <controls:Flyout Header="Settings" Position="Right" Width="400" IsOpen="{Binding Settings.IsActive}">
-
-                <settings:SettingsView DataContext="{Binding Settings}" Width="400"/>
-
-            </controls:Flyout>
-
-        </controls:FlyoutsControl>
-    </controls:MetroWindow.Flyouts>
 
     <Grid>
 
@@ -63,7 +43,7 @@
         <!--<ContentControl Content="{Binding ActiveView}">
 
             </ContentControl>-->
-        <controls:TransitioningContentControl Content="{Binding ActiveView}">
+        <controls:TransitioningContentControl Content="{Binding ActiveView}" Transition="Left">
         </controls:TransitioningContentControl>
 
     </Grid>

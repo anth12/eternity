@@ -141,6 +141,7 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\Dashboard\DashboardViewModel.cs" />
     <Compile Include="ViewModels\Dashboard\DashboardModel.cs" />
+    <Compile Include="ViewModels\Home\HomeChildScreen.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="ViewModels\Projects\ProjectsViewModel.cs" />
@@ -159,6 +160,9 @@
     </Compile>
     <Compile Include="Views\Partials\TimeSlotView.xaml.cs">
       <DependentUpon>TimeSlotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Partials\TitleBar.xaml.cs">
+      <DependentUpon>TitleBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Projects\ProjectsView.xaml.cs">
       <DependentUpon>ProjectsView.xaml</DependentUpon>
@@ -218,6 +222,10 @@
     <Content Include="Assets\Icons\week_time.svg" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Assets\ViewBinding.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Assets\Tile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -241,6 +249,10 @@
     <Page Include="Views\Partials\TimeSlotView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Partials\TitleBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Projects\ProjectsView.xaml">
       <SubType>Designer</SubType>

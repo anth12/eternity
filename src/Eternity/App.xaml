@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/basedark.xaml" />
                 
                 <ResourceDictionary Source="/Assets/Tile.xaml" />
+                <ResourceDictionary Source="/Assets/ViewBinding.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <!--<converters:VisibilityValueConverter x:Key="VisibilityConverter"></converters:VisibilityValueConverter>

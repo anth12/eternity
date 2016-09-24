@@ -8,10 +8,4 @@
         <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
     </Style>
 
-    <Style x:Key="HomeTabHeaderStyle" TargetType="Label">
-        <Setter Property="FontSize" Value="22" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-    </Style>
-    
-    
 </ResourceDictionary>

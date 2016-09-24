@@ -4,10 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:partials="clr-namespace:Eternity.Views.Partials"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Margin="10">
-        
+        <partials:TitleBar TitleText="Settings" BackCommand="{Binding BackCommand}"/>
         <GroupBox Grid.Row="0" Header="Screenshot">
             <StackPanel>
                 <Label>Record Screenshots</Label>

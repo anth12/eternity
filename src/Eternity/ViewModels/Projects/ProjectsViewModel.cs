@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eternity.ViewModels.Projects
 {
-    internal class ProjectsViewModel : BaseViewModel
+    internal class HomeChildScreen : BaseViewModel
     {
     }
 }
