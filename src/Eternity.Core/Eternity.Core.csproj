@@ -60,6 +60,7 @@
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\ProjectRepository.cs" />
     <Compile Include="Screenshot\ScreenshotBackgroundTask.cs" />
+    <Compile Include="Screenshot\ScreenshotService.cs" />
     <Compile Include="Screenshot\ScreenshotUtility.cs" />
     <Compile Include="Settings\Models\ScreenshotQuality.cs" />
     <Compile Include="Settings\SettingsBootstrapper.cs" />

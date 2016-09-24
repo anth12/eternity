@@ -74,7 +74,7 @@ namespace Eternity.ViewModels
                                                                   | BindingFlags.Public);
 
                 if(eventHandler == null)
-                    throw new Exception($"Cannot find event handler for `{eventHandlerName}`");
+                    throw new Exception($"Cannot find event handler for `{eventHandlerName}` in {type.Name}");
 
                 command.SetValue(this, new RelayCommand(e=> eventHandler.Invoke(this, null)));
             }

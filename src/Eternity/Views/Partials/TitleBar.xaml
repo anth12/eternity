@@ -48,6 +48,6 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <Label Name="TitleLabel" Content="{Binding TitleText, FallbackValue=Settings}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="22"></Label>
+        <Label Name="TitleLabel" Content="{Binding TitleText, FallbackValue=Settings}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="22"></Label>
     </StackPanel>
 </UserControl>

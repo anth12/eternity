@@ -36,22 +36,22 @@ namespace Eternity.Core.Screenshot
                 encoderParameters.Param[0] = encoderParameter;
                 
                 // Do something with the Bitmap here, like save it to a file:
-                bmp.Save(ScreenshotPath(), jpgEncoder, encoderParameters);
+                bmp.Save(ScreenshotPath(DateTime.Now), jpgEncoder, encoderParameters);
             }
         }
 
-        public static string ScreenshotDirectory => 
+        public static string ScreenshotDirectory =>
                 EternitySettings.Current.ScreenshotPath
                     .Or(AppDataHelper.FilePath("", directory: "screenshots"));
 
-        private static string ScreenshotPath()
+        public static string ScreenshotPath(DateTime date)
         {
-            return Path.Combine(ScreenshotDirectory, $"{DateTime.Now:yyyy-MM-dd HH-mm-ss}.jpg");
+            return Path.Combine(ScreenshotDirectory, $"{date:yyyy-MM-dd HH-mm-ss}.jpg");
         }
         private static ImageCodecInfo GetEncoder(ImageFormat format)
         {
             return ImageCodecInfo.GetImageDecoders()
-                .FirstOrDefault(c=> c.FormatID == format.Guid);
+                .FirstOrDefault(c => c.FormatID == format.Guid);
         }
 
         public static void CleanScreenshots()

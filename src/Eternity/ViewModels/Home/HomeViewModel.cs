@@ -1,29 +1,25 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Autofac;
 using Eternity.ViewModels.Dashboard;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
-using Eternity.ViewModels.Settings;
 
 namespace Eternity.ViewModels.Home
 {
     internal class HomeViewModel : BaseViewModel
     {
+
         public void Init()
         {
-            Views = new ObservableCollection<IViewModel>
-            {
-                App.Container.Resolve<DashboardViewModel>(),
-                App.Container.Resolve<SettingsViewModel>()
-            };
-            
+            var childViewModels = App.Container.Resolve<IEnumerable<IHomeChildScreen>>();
+            Views = new ObservableCollection<IViewModel>(childViewModels);
+
             Navigate<DashboardViewModel>();
         }
 

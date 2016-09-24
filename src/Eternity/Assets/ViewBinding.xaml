@@ -1,16 +1,22 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                     xmlns:dashboardVM="clr-namespace:Eternity.ViewModels.Dashboard"
                     xmlns:home="clr-namespace:Eternity.Views.Home"
-                    xmlns:settingsVM="clr-namespace:Eternity.ViewModels.Settings">
+                    xmlns:settingsVM="clr-namespace:Eternity.ViewModels.Settings"
+                    xmlns:settings="clr-namespace:Eternity.Views.Settings"
+                    xmlns:screenshotVM="clr-namespace:Eternity.ViewModels.Screenshot"
+                    xmlns:screenshot="clr-namespace:Eternity.Views.Screenshot">
     
     <!-- Top Level views -->
     <DataTemplate DataType="{x:Type dashboardVM:DashboardViewModel}">
         <home:DashboardView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type settingsVM:SettingsViewModel}">
-        <home:SettingsView />
+    <DataTemplate DataType="{x:Type screenshotVM:ScreenshotViewModel}">
+        <screenshot:ScreenshotView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type settingsVM:SettingsViewModel}">
+        <settings:SettingsView />
+    </DataTemplate>
+
     
 </ResourceDictionary>

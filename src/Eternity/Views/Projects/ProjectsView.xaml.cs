@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Eternity.Views.Projects
+namespace Eternity.Views.Home
 {
     /// <summary>
     /// Interaction logic for ProjectsView.xaml

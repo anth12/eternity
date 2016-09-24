@@ -4,6 +4,7 @@ using System.Windows.Threading;
 using Autofac;
 using Eternity.Core;
 using Eternity.Core.Repositories;
+using Eternity.Utilities.Taskbar;
 using Eternity.ViewModels.Home;
 using Eternity.Views;
 
@@ -27,6 +28,8 @@ namespace Eternity
             viewModel.Init();
             window.DataContext = viewModel;
             window.Show();
+            
+            TaskbarIcon.Initialize();
 
             Application.Current.DispatcherUnhandledException += new DispatcherUnhandledExceptionEventHandler(AppDispatcherUnhandledException);
             
@@ -89,7 +92,7 @@ Do you want to continue?
 
             builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
                 .Where(t => t.Name.EndsWith("ViewModel"))
-                .AsSelf()
+                .AsSelf().AsImplementedInterfaces()
                 .SingleInstance();
 
             Container = builder.Build();

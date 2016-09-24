@@ -1,22 +1,19 @@
-﻿using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using Eternity.ViewModels.Home;
-using Eternity.ViewModels.Projects;
+using Eternity.ViewModels.Screenshot;
 using Eternity.ViewModels.Settings;
 
 namespace Eternity.ViewModels.Dashboard
 {
-    internal class DashboardViewModel : BaseViewModel<DashboardModel>
+    internal class DashboardViewModel : HomeChildScreen<DashboardModel>
     {
-        protected readonly HomeViewModel Parent;
-
         public DashboardViewModel(HomeViewModel parent)
+            : base(parent)
         {
-            Parent = parent;
         }
 
+        public ICommand ScreenshotsCommand { get; set; }
         public ICommand CurrentDayCommand { get; set; }
         public ICommand CurrentWeekCommand { get; set; }
         public ICommand ProjectsCommand { get; set; }
@@ -34,8 +31,11 @@ namespace Eternity.ViewModels.Dashboard
 
         public void Projects()
         {
-
             //Parent.Navigate<ProjectsViewModel>();
+        }
+        public void Screenshots()
+        {
+            Parent.Navigate<ScreenshotViewModel>();
         }
 
         public void Settings()

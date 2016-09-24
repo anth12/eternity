@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Input;
+using Eternity.Core.Screenshot;
 using Eternity.Core.Settings;
 using Eternity.Core.Settings.Models;
+using Eternity.ViewModels.Dashboard;
 using Eternity.ViewModels.Home;
 
 namespace Eternity.ViewModels.Settings
@@ -33,8 +35,10 @@ namespace Eternity.ViewModels.Settings
         #region Event handlers
         protected void SaveAndClose()
         {
+            // Ensure the Screenshot util is started/stopped
+            ScreenshotBackgroundTask.EnsureRunning();
             SettingsBootstrapper.Persist();
-            // IsActive = false;
+            Parent.Navigate<DashboardViewModel>();
         }
 
         protected void ScreenshotFolderPicker()

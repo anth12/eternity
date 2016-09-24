@@ -15,7 +15,7 @@ namespace Eternity.Core
             /*
              * Begin background tasks
              */
-             ScreenshotBackgroundTask.Run();
+             ScreenshotBackgroundTask.EnsureRunning();
         }
     }
 }

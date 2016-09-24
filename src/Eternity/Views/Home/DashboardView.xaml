@@ -28,7 +28,9 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <controls:Tile Content="5hrs" Title="Time logged today" Background="#FFA20025" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Command="{Binding CurrentDayCommand}"></controls:Tile>
+        <controls:Tile Content="5hrs" Title="Temp Screenshots" Background="#FFA20025" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1" Command="{Binding ScreenshotsCommand}"></controls:Tile>
+        <controls:Tile Content="5hrs" Title="Time logged today" Background="#FFA20025" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="1" Command="{Binding CurrentDayCommand}"></controls:Tile>
+        
         <controls:Tile Content="26hrs" Title="Time logged this week" Background="#FF50634A" Grid.Column="5" Grid.Row="1" Command="{Binding CurrentWeekCommand}"></controls:Tile>
         <controls:Tile Content="Edit Projects" Title="" Background="#FF119EDA" Grid.Column="7" Grid.Row="1" Grid.RowSpan="3" Command="{Binding ProjectsCommand}"></controls:Tile>
 

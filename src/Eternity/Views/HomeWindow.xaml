@@ -13,6 +13,7 @@
         ShowIconOnTitleBar="False"
         Icon="/Eternity;component/Resources/Icon.ico"
         GlowBrush="#666"
+        Closing="HomeWindow_OnClosing"
         >
 
     <controls:MetroWindow.RightWindowCommands>

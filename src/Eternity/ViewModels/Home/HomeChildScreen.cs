@@ -3,7 +3,7 @@ using Eternity.ViewModels.Dashboard;
 
 namespace Eternity.ViewModels.Home
 {
-    internal abstract class HomeChildScreen<TModel> : BaseViewModel<TModel>
+    internal abstract class HomeChildScreen<TModel> : BaseViewModel<TModel>, IHomeChildScreen
     {
         protected HomeChildScreen(HomeViewModel parent)
         {
@@ -19,4 +19,10 @@ namespace Eternity.ViewModels.Home
             Parent.Navigate<DashboardViewModel>();
         }
     }
+
+    public interface IHomeChildScreen : IViewModel
+    {
+        
+    }
+
 }

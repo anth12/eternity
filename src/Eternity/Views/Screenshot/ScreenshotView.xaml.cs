@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Eternity.Views.Home
+namespace Eternity.Views.Screenshot
 {
     /// <summary>
-    /// Interaction logic for ProjectsView.xaml
+    /// Interaction logic for ScreenshotView.xaml
     /// </summary>
-    public partial class ProjectsView : UserControl
+    public partial class ScreenshotView : UserControl
     {
-        public ProjectsView()
+        public ScreenshotView()
         {
             InitializeComponent();
         }

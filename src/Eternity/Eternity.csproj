@@ -52,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>eterinty icon.ico</ApplicationIcon>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
@@ -137,6 +137,7 @@
     <Compile Include="Utilities\Commands\RelayCommand.cs" />
     <Compile Include="Utilities\Converters\ReverseVisibilityValueConverter.cs" />
     <Compile Include="Utilities\Converters\VisibilityValueConverter.cs" />
+    <Compile Include="Utilities\Taskbar\TaskbarIcon.cs" />
     <Compile Include="ViewModels\BaseViewModel`TModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\Dashboard\DashboardViewModel.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="ViewModels\Projects\ProjectsViewModel.cs" />
+    <Compile Include="ViewModels\Screenshot\ScreenshotViewModel.cs" />
     <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
     <Compile Include="Views\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
@@ -152,10 +154,10 @@
     <Compile Include="Views\Home\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home\ProjectsView.xaml.cs">
+    <Compile Include="Views\Projects\ProjectsView.xaml.cs">
       <DependentUpon>ProjectsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home\SettingsView.xaml.cs">
+    <Compile Include="Views\Settings\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Partials\TimeSlotView.xaml.cs">
@@ -164,11 +166,8 @@
     <Compile Include="Views\Partials\TitleBar.xaml.cs">
       <DependentUpon>TitleBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Projects\ProjectsView.xaml.cs">
-      <DependentUpon>ProjectsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Settings\SettingsView.xaml.cs">
-      <DependentUpon>SettingsView.xaml</DependentUpon>
+    <Compile Include="Views\Screenshot\ScreenshotView.xaml.cs">
+      <DependentUpon>ScreenshotView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -203,13 +202,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Icon.ico" />
     <Content Include="Resources\Icon_Alt.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="eterinty icon.ico" />
     <Resource Include="FodyWeavers.xml" />
     <Resource Include="Assets\Cursors\Crop Down.cur" />
     <Resource Include="Assets\Cursors\Crop Up.cur" />
@@ -238,11 +237,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Home\ProjectsView.xaml">
+    <Page Include="Views\Projects\ProjectsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Home\SettingsView.xaml">
+    <Page Include="Views\Settings\SettingsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -254,13 +253,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Projects\ProjectsView.xaml">
+    <Page Include="Views\Screenshot\ScreenshotView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Settings\SettingsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
