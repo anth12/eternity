@@ -36,7 +36,7 @@ namespace Eternity.Core.Utilities.Helpers
             }
         }
 
-        public static string FilePath(string fileName, string directory = "")
+        public static string FilePath(string fileName = null, string directory = "")
         {
             var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
@@ -56,7 +56,9 @@ namespace Eternity.Core.Utilities.Helpers
                 }
             }
 
-            return $"{appDataPath}\\{fileName}";
+            return fileName.IsBlank() 
+                ? appDataPath 
+                : $"{appDataPath}\\{fileName}";
         }
     }
 }

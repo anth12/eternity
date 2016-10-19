@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Input;
+using Eternity.Core.Driver;
 using Eternity.Core.Screenshot;
 using Eternity.Core.Settings;
 using Eternity.Core.Settings.Models;
@@ -13,8 +15,13 @@ namespace Eternity.ViewModels.Settings
 {
     internal class SettingsViewModel : HomeChildScreen<EternitySettings>
     {
-        public SettingsViewModel(HomeViewModel parent) : base(parent)
+
+        private readonly DriverService _driverService;
+
+        public SettingsViewModel(HomeViewModel parent, DriverService driverService) : base(parent)
         {
+            _driverService = driverService;
+
             // When IsActive is changed, reload the settings- this will 
             // revert any unsaved changes when closing the settings
             // OnPropertyChanged(nameof(IsActive), Load);
@@ -22,15 +29,22 @@ namespace Eternity.ViewModels.Settings
             {
                 // TODO auto-save
             };
-            ScreenshotQualities = Enum.GetValues(typeof(ScreenshotQuality)).OfType<ScreenshotQuality>();
+            ScreenshotQualitiesList = Enum.GetValues(typeof(ScreenshotQuality)).OfType<ScreenshotQuality>();
+            Load();
+            PopulateDriversList();
         }
         
 
-        public IEnumerable<ScreenshotQuality> ScreenshotQualities { get; set; }
+        public IEnumerable<ScreenshotQuality> ScreenshotQualitiesList { get; set; }
+        public ObservableCollection<string> DriversList { get; set; } = new ObservableCollection<string>();
 
         #region Commands
         public ICommand SaveAndCloseCommand { get; set; }
         public ICommand ScreenshotFolderPickerCommand { get; set; }
+
+
+        public ICommand AddDriverCommand { get; set; }
+        public ICommand RemoveDriverCommand { get; set; }
 
         #region Event handlers
         protected void SaveAndClose()
@@ -55,6 +69,39 @@ namespace Eternity.ViewModels.Settings
                 Model.ScreenshotPath = folderPicker.SelectedPath;
             }
         }
+
+        protected void AddDriver()
+        {
+            var filePicker = new OpenFileDialog
+            {
+                
+            };
+
+            var result = filePicker.ShowDialog();
+
+            if (result == DialogResult.OK && filePicker.FileName.IsNotBlank())
+            {
+                var error = _driverService.AddDriver(filePicker.FileName);
+                if (error.IsBlank())
+                {
+                    PopulateDriversList();
+                    Model.Driver = filePicker.FileName.PathFileName();
+                    return;
+                }
+
+                MessageBox.Show(error); // TODO use metro theme
+            }
+        }
+
+        protected void RemoveDriver()
+        {
+            if (Model.Driver.IsNotBlank())
+            {
+                _driverService.RemoveDriver(Model.Driver);
+                PopulateDriversList();
+                Model.Driver = "";
+            }
+        }
         #endregion
 
         #endregion
@@ -63,6 +110,13 @@ namespace Eternity.ViewModels.Settings
         {
             SettingsBootstrapper.Setup();
             Model = EternitySettings.Current;
+        }
+
+        private void PopulateDriversList()
+        {
+            DriversList.Clear();
+
+            
         }
     }
 }

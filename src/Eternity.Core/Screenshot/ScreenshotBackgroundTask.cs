@@ -34,21 +34,19 @@ namespace Eternity.Core.Screenshot
 
         private static void Tick()
         {
-            if (Running == false)
-                return;
-
-            ScreenshotUtility.TakeScreenshot();
-
-            if (LastCleanedScreenshots.Add(TimeSpan.FromHours(1)) >= DateTime.Now)
+            while (Running)
             {
-                // Clean old screenshots every hour
-                ScreenshotUtility.CleanScreenshots();
-                LastCleanedScreenshots = DateTime.Now;
+                ScreenshotUtility.TakeScreenshot();
+
+                if (LastCleanedScreenshots.Add(TimeSpan.FromHours(1)) >= DateTime.Now)
+                {
+                    // Clean old screenshots every hour
+                    ScreenshotUtility.CleanScreenshots();
+                    LastCleanedScreenshots = DateTime.Now;
+                }
+
+                Thread.Sleep(EternitySettings.Current.ScreenshotFrequency);
             }
-
-            Thread.Sleep(EternitySettings.Current.ScreenshotFrequency);
-
-            Tick();
         }
     }
 }

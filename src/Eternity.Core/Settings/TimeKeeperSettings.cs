@@ -20,5 +20,10 @@ namespace Eternity.Core.Settings
         public DayOfWeek[] WorkingDays { get; set; }
         public TimeSpan WorkingTime { get; set; }
         public TimeSpan LunchBreak { get; set; }
+
+        /// <summary>
+        /// Active driver
+        /// </summary>
+        public string Driver { get; set; }
     }
 }

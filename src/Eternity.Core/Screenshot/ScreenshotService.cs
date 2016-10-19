@@ -9,9 +9,8 @@ namespace Eternity.Core.Screenshot
     public class ScreenshotService
     {
         /// <summary>
-        /// Retrieves a list of Dates that contain 1 or more screenshots
+        /// Retrieves a list of Dates that contain at least screenshot
         /// </summary>
-        /// <returns></returns>
         public List<DateTime> GetDays()
         {
             return GetDates()

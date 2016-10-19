@@ -32,17 +32,32 @@
                 <Label>Screenshots Quality</Label>
                 <controls:SplitButton
                     SelectedItem="{Binding Model.ScreenshotQuality}"
-                    ItemsSource="{Binding ScreenshotQualities}"
+                    ItemsSource="{Binding ScreenshotQualitiesList}"
                     ></controls:SplitButton>
                 
             
             </StackPanel>
         </GroupBox>
-        
-        
-        
 
-        <Label Content="Default Svn path" Grid.Row="3" />
+        <GroupBox Grid.Row="1" Header="Drivers">
+            <StackPanel>
+
+
+                <Label>Driver</Label>
+                <controls:DropDownButton
+                    Content="{Binding Model.Driver}"
+                    ItemsSource="{Binding DriversList}"
+                    ></controls:DropDownButton>
+                
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Add Driver" Command="{Binding AddDriverCommand}" />
+                    <Button Content="Remove Driver" Command="{Binding RemoveDriverCommand}" />
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+
+            <Label Content="Default Svn path" Grid.Row="3" />
         <TextBox Text="{Binding Model.DefaultSvnPath}" Grid.Row="4" />
 
         <Label Content="Naming Convention" Grid.Row="5" />
