@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A04F2DF4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.Core.Tests", "Eternity.Core.Tests\Eternity.Core.Tests.csproj", "{F68217F5-8FB5-443B-92CD-4611513A617D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.Experiments", "Eternity.Experiments\Eternity.Experiments.csproj", "{87B5C399-D971-4E2B-8D6B-A3FC85417F91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{F68217F5-8FB5-443B-92CD-4611513A617D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F68217F5-8FB5-443B-92CD-4611513A617D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F68217F5-8FB5-443B-92CD-4611513A617D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87B5C399-D971-4E2B-8D6B-A3FC85417F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B5C399-D971-4E2B-8D6B-A3FC85417F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B5C399-D971-4E2B-8D6B-A3FC85417F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B5C399-D971-4E2B-8D6B-A3FC85417F91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +55,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{06B17C1E-7A9E-461C-B054-0CB8612452C9} = {D6CE9638-906B-4911-B737-847EC0ABFFD7}
 		{F68217F5-8FB5-443B-92CD-4611513A617D} = {A04F2DF4-A577-4C97-83FD-30ABAAB83FEF}
+		{87B5C399-D971-4E2B-8D6B-A3FC85417F91} = {A04F2DF4-A577-4C97-83FD-30ABAAB83FEF}
 	EndGlobalSection
 EndGlobal

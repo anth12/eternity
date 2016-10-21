@@ -17,10 +17,12 @@ namespace Eternity.ViewModels.Settings
     {
 
         private readonly DriverService _driverService;
+        private readonly ScreenshotBackgroundTask _screenshotBackgroundTask;
 
-        public SettingsViewModel(HomeViewModel parent, DriverService driverService) : base(parent)
+        public SettingsViewModel(HomeViewModel parent, DriverService driverService, ScreenshotBackgroundTask screenshotBackgroundTask) : base(parent)
         {
             _driverService = driverService;
+            _screenshotBackgroundTask = screenshotBackgroundTask;
 
             // When IsActive is changed, reload the settings- this will 
             // revert any unsaved changes when closing the settings
@@ -50,7 +52,11 @@ namespace Eternity.ViewModels.Settings
         protected void SaveAndClose()
         {
             // Ensure the Screenshot util is started/stopped
-            ScreenshotBackgroundTask.EnsureRunning();
+            if(EternitySettings.Current.ScreenshotsEnabled)
+                _screenshotBackgroundTask.Start();
+            else
+                _screenshotBackgroundTask.Stop();
+
             SettingsBootstrapper.Persist();
             Parent.Navigate<DashboardViewModel>();
         }

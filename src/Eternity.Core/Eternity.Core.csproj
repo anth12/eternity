@@ -63,13 +63,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\ProjectRepository.cs" />
-    <Compile Include="Screenshot\ScreenshotBackgroundTask.cs" />
+    <Compile Include="Tasks\Screenshot\ScreenshotBackgroundTask.cs" />
     <Compile Include="Screenshot\ScreenshotService.cs" />
     <Compile Include="Screenshot\ScreenshotUtility.cs" />
     <Compile Include="Settings\Models\ScreenshotQuality.cs" />
     <Compile Include="Settings\SettingsBootstrapper.cs" />
     <Compile Include="Settings\TimeKeeperSettings.cs" />
+    <Compile Include="Tasks\BaseBackgroundTask.cs" />
+    <Compile Include="Tasks\IBackgroundTask.cs" />
+    <Compile Include="Tasks\IPauseOnLock.cs" />
     <Compile Include="Utilities\Helpers\AppDataHelper.cs" />
+    <Compile Include="Windows\ApplicationHelper.cs" />
+    <Compile Include="Tasks\Windows\ApplicationMonitorBackgroundTask.cs" />
+    <Compile Include="Windows\WindowsApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

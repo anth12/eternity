@@ -20,7 +20,10 @@ namespace Eternity
         {
             RegisterDependencies();
 
-            Bootstrapper.Setup();
+            /*
+             * Bootstrapper
+             */
+            Container.Resolve<Bootstrapper>().Setup();
 
             var window = new HomeWindow();
 
@@ -79,6 +82,15 @@ Do you want to continue?
         private static void RegisterDependencies()
         {
             var builder = new ContainerBuilder();
+
+            // On-off dependencies
+            builder.RegisterType<Bootstrapper>();
+
+            builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
+               .Where(t => t.Name.EndsWith("BackgroundTask"))
+               .AsSelf()
+               .AsImplementedInterfaces()
+               .SingleInstance();
 
             builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
                .Where(t => t.Name.EndsWith("Service"))

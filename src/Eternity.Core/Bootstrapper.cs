@@ -1,21 +1,31 @@
-﻿using Eternity.Core.Screenshot;
+﻿using System.Collections.Generic;
 using Eternity.Core.Settings;
+using Eternity.Core.Tasks;
 
 namespace Eternity.Core
 {
     public class Bootstrapper
     {
-        public static void Setup()
+        private readonly IEnumerable<IBackgroundTask> _backgroundTasks;
+
+        public Bootstrapper(IEnumerable<IBackgroundTask> backgroundTasks)
+        {
+            _backgroundTasks = backgroundTasks;
+        }
+
+        public void Setup()
         {
             /*
              * Setup the application
              */
             SettingsBootstrapper.Setup();
+            
 
-            /*
-             * Begin background tasks
-             */
-             ScreenshotBackgroundTask.EnsureRunning();
+            // Start the background tasks
+            foreach (var backgroundTask in _backgroundTasks)
+            {
+                backgroundTask.Start();
+            }
         }
     }
 }
