@@ -1,14 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using Eternity.Core.Models;
 
 namespace Eternity.Core.Windows
 {
     public class ApplicationHelper
     {
         #region External imports
+
+        [DllImport("USER32.DLL")]
+        private static extern IntPtr GetShellWindow();
+
+
+        [DllImport("USER32.DLL")]
+        private static extern bool IsWindowVisible(IntPtr hWnd);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
         public static extern IntPtr GetForegroundWindow();
@@ -21,6 +30,9 @@ namespace Eternity.Core.Windows
 
         [DllImport("user32.dll")]
         private static extern bool EnumWindows(EnumWindowsProc enumProc, IntPtr lParam);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
 
         // Delegate to filter which windows to include 
         public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
@@ -47,7 +59,6 @@ namespace Eternity.Core.Windows
 
             var result = new WindowsApplication
             {
-                Process = process,
                 ProcessId = processId,
                 StarTime = process.StartTime,
                 ProcessName = process.ProcessName,
@@ -57,6 +68,70 @@ namespace Eternity.Core.Windows
             return result;
         }
 
+        public static IDictionary<IntPtr, string> GetOpenWindows()
+        {
+            var shellWindow = GetShellWindow();
+            var windows = new Dictionary<IntPtr, string>();
+
+            EnumWindows((IntPtr wnd, IntPtr param) =>
+            {
+                if (wnd == shellWindow) return true;
+                if (!IsWindowVisible(wnd)) return true;
+
+                int length = GetWindowTextLength(wnd);
+                if (length == 0) return true;
+
+                StringBuilder builder = new StringBuilder(length);
+                GetWindowText(wnd, builder, length + 1);
+
+                windows[wnd] = builder.ToString();
+                return true;
+            }, IntPtr.Zero);
+
+            return windows;
+        }
+
+
+        public static List<WindowsApplication> GetOpenApplications()
+        {
+            var shellWindow = GetShellWindow();
+            var windows = new List<WindowsApplication>();
+
+            EnumWindows((IntPtr wnd, IntPtr param) =>
+            {
+                if (wnd == shellWindow) return true;
+                if (!IsWindowVisible(wnd)) return true;
+
+                int length = GetWindowTextLength(wnd);
+                if (length == 0) return true;
+
+                StringBuilder builder = new StringBuilder(length);
+                GetWindowText(wnd, builder, length + 1);
+
+                uint processId;
+                GetWindowThreadProcessId(wnd, out processId);
+
+                var process = Process.GetProcessById((int) processId);
+                
+                windows.Add(new WindowsApplication
+                {
+                    ProcessId = wnd.ToInt32(),
+                    ProcessName = process.ProcessName,
+                    WindowName = builder.ToString(),
+                    StarTime = process.StartTime
+                });
+                
+                return true;
+            }, IntPtr.Zero);
+
+            var forgroundProcessId = GetForegroundWindow().ToInt32();
+            var forgroundApplication = windows.FirstOrDefault(p => p.ProcessId == forgroundProcessId);
+            if (forgroundApplication != null)
+                forgroundApplication.HasFocus = true;
+
+            return windows;
+        }
+        
         /// <summary> Find all windows that match the given filter </summary>
         /// <param name="filter">
         /// A delegate that returns true for windows
@@ -87,10 +162,7 @@ namespace Eternity.Core.Windows
         /// <param name="titleText"> The text that the window title must contain. </param>
         public static IEnumerable<IntPtr> FindWindowsWithText(string titleText)
         {
-            return FindWindows(delegate (IntPtr wnd, IntPtr param)
-            {
-                return GetWindowText(wnd).Contains(titleText);
-            });
+            return FindWindows((wnd, param) => GetWindowText(wnd).Contains(titleText));
         }
     }
 }

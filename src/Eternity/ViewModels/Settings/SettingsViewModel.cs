@@ -108,6 +108,7 @@ namespace Eternity.ViewModels.Settings
                 Model.Driver = "";
             }
         }
+
         #endregion
 
         #endregion

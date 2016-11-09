@@ -1,15 +1,29 @@
-﻿using Eternity.Core.Tasks;
+﻿using System.Threading;
+using Eternity.Core.Tasks;
+using FluentAssertions;
+using Xunit;
 
 namespace Eternity.Core.Tests.BackgroundTasks
 {
     public class TaskSchedulingTests
     {
-        public void Can_exwecute_task
+        [Fact]
+        public void Can_execute_task()
+        {
+            var task = new MockBackgroundTask();
+            task.Start();
+
+            Thread.Sleep(505);
+
+            task.Stop();
+
+            task.Executions.Should().Be(9);
+        }
     }
 
     internal class MockBackgroundTask : BaseBackgroundTask
     {
-        protected override int TickInterval => 300;
+        protected override int TickInterval => 50;
 
         public int Executions;
         protected override void Run()
