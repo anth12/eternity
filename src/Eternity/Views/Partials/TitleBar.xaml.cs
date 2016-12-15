@@ -12,8 +12,6 @@ namespace Eternity.Views.Partials
         public TitleBar()
         {
             InitializeComponent();
-
-            //this.Parent.
         }
 
         public string TitleText { get; set; }

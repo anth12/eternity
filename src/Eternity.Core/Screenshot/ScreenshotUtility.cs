@@ -40,39 +40,55 @@ namespace Eternity.Core.Screenshot
             }
         }
 
+        /// <summary>
+        /// Returns either the user configured screenshot directory or the default AppData directory
+        /// </summary>
         public static string ScreenshotDirectory =>
                 EternitySettings.Current.ScreenshotPath
                     .Or(AppDataHelper.FilePath("", directory: "screenshots"));
 
+        /// <summary>
+        /// Generates a Date based screenshot directory (non-existent directories are created)
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public static string ScreenshotPath(DateTime date)
         {
-            return Path.Combine(ScreenshotDirectory, $"{date:yyyy-MM-dd HH-mm-ss}.jpg");
+            var directory = Path.Combine(ScreenshotDirectory, $"{date:yyyy-MM-dd}");
+
+            if (!Directory.Exists(directory))
+                Directory.CreateDirectory(directory);
+
+            return Path.Combine(directory, $"{date:HH-mm-ss}.jpg");
         }
+
         private static ImageCodecInfo GetEncoder(ImageFormat format)
         {
             return ImageCodecInfo.GetImageDecoders()
                 .FirstOrDefault(c => c.FormatID == format.Guid);
         }
 
+        /// <summary>
+        /// Clears screenshots older that the configurable history length of time
+        /// </summary>
         public static void CleanScreenshots()
         {
             // TODO add lock when browsing screenshots
             var removalDate = DateTime.Now.Add(-EternitySettings.Current.ScreenshotLifespan);
 
-            var screenshotPaths = Directory.GetFiles(ScreenshotDirectory);
+            var screenshotDirectories = Directory.GetDirectories(ScreenshotDirectory);
 
-            foreach (var screenshotPath in screenshotPaths)
+            foreach (var screenshotDirectory in screenshotDirectories)
             {
-                var dateString = screenshotPath
-                                    .Split('\\').Last()
-                                    .Split('.').First();
-                var screenshotDate = DateTime.ParseExact(dateString, "yyyy-MM-dd HH-mm-ss", null);
+                var dateString = screenshotDirectory
+                                    .Split('\\').Last();
+                var screenshotDate = DateTime.ParseExact(dateString, "yyyy-MM-dd", null);
 
                 if (screenshotDate <= removalDate)
                 {
                     try
                     {
-                        File.Delete(screenshotPath);
+                        Directory.Delete(screenshotDirectory, true);
                     }
                     catch (Exception ex)
                     {

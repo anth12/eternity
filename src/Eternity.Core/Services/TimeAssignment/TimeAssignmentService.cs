@@ -20,6 +20,7 @@ namespace Eternity.Core.Services.TimeAssignment
 
         public List<TimeLog> CreateTimeLog(List<SimpleWindowsApplicationRecord> applicationRecords)
         {
+
             var fuzzyMatches = GetFuzzyWorkingProjects(applicationRecords);
 
             var activeProjects = RefineFuzzyMatches(fuzzyMatches);
@@ -27,26 +28,52 @@ namespace Eternity.Core.Services.TimeAssignment
             return AssignProjectsToTimeLog(activeProjects);
         }
 
+        #region
 
-        #region Private methods
-
+        /// <summary>
+        /// Maps the open applications to any possible matching projects
+        /// </summary>
+        /// <param name="applicationRecords"></param>
+        /// <returns></returns>
         private List<FuzzyProjectTimeLog> GetFuzzyWorkingProjects(
             List<SimpleWindowsApplicationRecord> applicationRecords)
         {
             var projects = projectRepository.GetAll();
 
             return (from applicationRecordSet in applicationRecords
-                from simpleWindowsApplication in applicationRecordSet.Items
+                    from simpleWindowsApplication in applicationRecordSet.Items
                     let activeProjects = projects
                                                 .Where(project => project.ProjectAssociations.Any(association => association.MatchesApplication(simpleWindowsApplication))).ToList()
-                where activeProjects.Any()
-                select new FuzzyProjectTimeLog
-                {
-                    Time = applicationRecordSet.Time,
-                    Projects = activeProjects,
-                    Application = simpleWindowsApplication
-                }).ToList();
+                    where activeProjects.Any()
+                    select new FuzzyProjectTimeLog
+                    {
+                        Time = applicationRecordSet.Time,
+                        Projects = activeProjects,
+                        Application = simpleWindowsApplication
+                    }).ToList();
         }
+
+        #endregion
+
+        #region OLD- Private methods
+
+        //private List<FuzzyProjectTimeLog> GetFuzzyWorkingProjects(
+        //    List<SimpleWindowsApplicationRecord> applicationRecords)
+        //{
+        //    var projects = projectRepository.GetAll();
+
+        //    return (from applicationRecordSet in applicationRecords
+        //        from simpleWindowsApplication in applicationRecordSet.Items
+        //            let activeProjects = projects
+        //                                        .Where(project => project.ProjectAssociations.Any(association => association.MatchesApplication(simpleWindowsApplication))).ToList()
+        //        where activeProjects.Any()
+        //        select new FuzzyProjectTimeLog
+        //        {
+        //            Time = applicationRecordSet.Time,
+        //            Projects = activeProjects,
+        //            Application = simpleWindowsApplication
+        //        }).ToList();
+        //}
         
         private Dictionary<DateTime, Project> RefineFuzzyMatches(List<FuzzyProjectTimeLog> fuzzyMatches)
         {

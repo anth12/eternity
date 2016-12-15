@@ -67,6 +67,7 @@
     <Compile Include="BackgroundTasks\TaskSchedulingTests.cs" />
     <Compile Include="Driver\DriverRegistrationTests.cs" />
     <Compile Include="Driver\DriverRuntimeTests.cs" />
+    <Compile Include="Extensions\ClosestToExtensionTests.cs" />
     <Compile Include="Extensions\StringExtensionTests.cs" />
     <Compile Include="Mock\MockProjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

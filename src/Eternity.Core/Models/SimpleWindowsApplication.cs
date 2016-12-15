@@ -36,7 +36,7 @@ namespace Eternity.Core.Models
                     return projectsRequiringFocus.First();
             }
 
-            // Perhaps use history or adidtional priority setting to break a tie
+            // Perhaps use history or additional priority setting to break a tie
             return
                 projects.FirstOrDefault(
                     project => project.ProjectAssociations.Any(association => association.MatchesApplication(this)));
