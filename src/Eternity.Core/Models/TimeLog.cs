@@ -10,6 +10,8 @@ namespace Eternity.Core.Models
         public Project Project { get; set; }
 
         public DateTime StartTime { get; set; }
-        public DateTime EnsdTime { get; set; }
+        public DateTime EndTime { get; set; }
+
+        public TimeSpan TotalTime => EndTime - StartTime;
     }
 }

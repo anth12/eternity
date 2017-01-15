@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Threading;
 using Autofac;
 using Eternity.Core;
-using Eternity.Core.Repositories;
 using Eternity.Utilities.Taskbar;
 using Eternity.ViewModels.Home;
 using Eternity.Views;

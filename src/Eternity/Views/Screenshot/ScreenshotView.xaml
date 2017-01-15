@@ -10,5 +10,7 @@
     <Grid>
         <partials:TitleBar TitleText="Screenshots" BackCommand="{Binding BackCommand}"/>
         
+        <Image Source="{Binding Model.CurrentImagePath}" Stretch="Fill" />
+        
     </Grid>
 </UserControl>

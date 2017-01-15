@@ -78,10 +78,7 @@ namespace Eternity.ViewModels.Settings
 
         protected void AddDriver()
         {
-            var filePicker = new OpenFileDialog
-            {
-                
-            };
+            var filePicker = new OpenFileDialog();
 
             var result = filePicker.ShowDialog();
 
@@ -108,6 +105,7 @@ namespace Eternity.ViewModels.Settings
                 Model.Driver = "";
             }
         }
+
         #endregion
 
         #endregion

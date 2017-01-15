@@ -1,7 +1,7 @@
 ﻿
 namespace Eternity.Core.Tasks
 {
-    public interface IPauseOnLock
+    public interface IPauseOnLock : IBackgroundTask
     {
     }
 }

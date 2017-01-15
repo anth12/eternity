@@ -17,20 +17,18 @@ namespace Eternity.Experiments
         //private static extern IntPtr GetForegroundWindow();
 
         
-
-
         static void Main(string[] args)
         {
 
-            foreach (KeyValuePair<IntPtr, string> window in OpenWindowGetter.GetOpenWindows())
-            {
-                IntPtr handle = window.Key;
-                string title = window.Value;
+            //foreach (KeyValuePair<IntPtr, string> window in OpenWindowGetter.GetOpenWindows())
+            //{
+            //    IntPtr handle = window.Key;
+            //    string title = window.Value;
 
-                Console.WriteLine("{0}: {1}", handle, title);
-            }
+            //    Console.WriteLine("{0}: {1}", handle, title);
+            //}
 
-            Console.ReadLine();
+            //Console.ReadLine();
 
             //IntPtr selectedWindow = GetForegroundWindow();
             //WindowHelper.FindWindows((wnd, param) => true);
@@ -47,12 +45,16 @@ namespace Eternity.Experiments
 
             while (true)
             {
-                var processes = Process.GetProcesses();
+                Console.Clear();
 
-
-                var fg = ApplicationHelper.GetForegroundWindow();
-                Console.WriteLine(fg);
-
+                
+                foreach (var window in ApplicationHelper.GetOpenApplications())
+                {
+                    Console.ForegroundColor = window.HasFocus ? ConsoleColor.DarkRed : ConsoleColor.White;
+                    
+                    Console.WriteLine("{0}: {1} {2}", window.ProcessId, window.ProcessName, window.WindowName);
+                }
+                
                 Thread.Sleep(1500);
             }
         }

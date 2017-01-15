@@ -20,11 +20,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.Core.Tests", "Eter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.Experiments", "Eternity.Experiments\Eternity.Experiments.csproj", "{87B5C399-D971-4E2B-8D6B-A3FC85417F91}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.JsonDriver", "Drivers\Eternity.JsonDriver\Eternity.JsonDriver.csproj", "{A9FC60F2-49BF-482F-89F2-525AEBE03693}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.ExcelDriver", "Drivers\Eternity.ExcelDriver\Eternity.ExcelDriver.csproj", "{2D2D67AD-E708-415E-8361-B98BBFA62F10}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.ExampleDriver", "Drivers\Eternity.ExampleDriver\Eternity.ExampleDriver.csproj", "{06B17C1E-7A9E-461C-B054-0CB8612452C9}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.CsvDriver", "Drivers\Eternity.CsvDriver\Eternity.CsvDriver.csproj", "{7E960925-BFEB-400D-B52F-ED5B86E2069B}"
+>>>>>>> origin/master
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +52,7 @@ Global
 		{87B5C399-D971-4E2B-8D6B-A3FC85417F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87B5C399-D971-4E2B-8D6B-A3FC85417F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87B5C399-D971-4E2B-8D6B-A3FC85417F91}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{A9FC60F2-49BF-482F-89F2-525AEBE03693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A9FC60F2-49BF-482F-89F2-525AEBE03693}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9FC60F2-49BF-482F-89F2-525AEBE03693}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -60,6 +65,12 @@ Global
 		{06B17C1E-7A9E-461C-B054-0CB8612452C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06B17C1E-7A9E-461C-B054-0CB8612452C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06B17C1E-7A9E-461C-B054-0CB8612452C9}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{7E960925-BFEB-400D-B52F-ED5B86E2069B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E960925-BFEB-400D-B52F-ED5B86E2069B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E960925-BFEB-400D-B52F-ED5B86E2069B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E960925-BFEB-400D-B52F-ED5B86E2069B}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> origin/master
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,8 +78,12 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F68217F5-8FB5-443B-92CD-4611513A617D} = {A04F2DF4-A577-4C97-83FD-30ABAAB83FEF}
 		{87B5C399-D971-4E2B-8D6B-A3FC85417F91} = {A04F2DF4-A577-4C97-83FD-30ABAAB83FEF}
+<<<<<<< HEAD
 		{A9FC60F2-49BF-482F-89F2-525AEBE03693} = {D6CE9638-906B-4911-B737-847EC0ABFFD7}
 		{2D2D67AD-E708-415E-8361-B98BBFA62F10} = {D6CE9638-906B-4911-B737-847EC0ABFFD7}
 		{06B17C1E-7A9E-461C-B054-0CB8612452C9} = {D6CE9638-906B-4911-B737-847EC0ABFFD7}
+=======
+		{7E960925-BFEB-400D-B52F-ED5B86E2069B} = {D6CE9638-906B-4911-B737-847EC0ABFFD7}
+>>>>>>> origin/master
 	EndGlobalSection
 EndGlobal

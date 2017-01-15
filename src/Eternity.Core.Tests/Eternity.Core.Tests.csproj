@@ -67,8 +67,11 @@
     <Compile Include="BackgroundTasks\TaskSchedulingTests.cs" />
     <Compile Include="Driver\DriverRegistrationTests.cs" />
     <Compile Include="Driver\DriverRuntimeTests.cs" />
+    <Compile Include="Extensions\ClosestToExtensionTests.cs" />
     <Compile Include="Extensions\StringExtensionTests.cs" />
+    <Compile Include="Mock\MockProjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TimeAssignment\TimeAssignmentServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -78,6 +81,9 @@
       <Project>{FF967472-3C6B-4293-8915-8DDF2441C132}</Project>
       <Name>Eternity.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

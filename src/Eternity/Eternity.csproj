@@ -146,6 +146,7 @@
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="ViewModels\Projects\ProjectsViewModel.cs" />
+    <Compile Include="ViewModels\Screenshot\ScreenshotModel.cs" />
     <Compile Include="ViewModels\Screenshot\ScreenshotViewModel.cs" />
     <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
     <Compile Include="Views\HomeWindow.xaml.cs">

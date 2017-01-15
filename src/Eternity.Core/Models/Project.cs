@@ -4,9 +4,9 @@ using PropertyChanged;
 namespace Eternity.Core.Models
 {
     [ImplementPropertyChanged]
-    public class Project
+    public class Project : BaseModel
     {
-        public string Core { get; set; }
+        public string Key { get; set; }
         public string Name { get; set; }
 
         public string Color { get; set; }
