@@ -14,13 +14,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Drivers", "Drivers", "{D6CE9638-906B-4911-B737-847EC0ABFFD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.ExampleDriver", "Eternity.ExampleDriver\Eternity.ExampleDriver.csproj", "{06B17C1E-7A9E-461C-B054-0CB8612452C9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A04F2DF4-A577-4C97-83FD-30ABAAB83FEF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.Core.Tests", "Eternity.Core.Tests\Eternity.Core.Tests.csproj", "{F68217F5-8FB5-443B-92CD-4611513A617D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.Experiments", "Eternity.Experiments\Eternity.Experiments.csproj", "{87B5C399-D971-4E2B-8D6B-A3FC85417F91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.JsonDriver", "Drivers\Eternity.JsonDriver\Eternity.JsonDriver.csproj", "{A9FC60F2-49BF-482F-89F2-525AEBE03693}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.ExcelDriver", "Drivers\Eternity.ExcelDriver\Eternity.ExcelDriver.csproj", "{2D2D67AD-E708-415E-8361-B98BBFA62F10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternity.ExampleDriver", "Drivers\Eternity.ExampleDriver\Eternity.ExampleDriver.csproj", "{06B17C1E-7A9E-461C-B054-0CB8612452C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,10 +40,6 @@ Global
 		{FF967472-3C6B-4293-8915-8DDF2441C132}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF967472-3C6B-4293-8915-8DDF2441C132}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF967472-3C6B-4293-8915-8DDF2441C132}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06B17C1E-7A9E-461C-B054-0CB8612452C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06B17C1E-7A9E-461C-B054-0CB8612452C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06B17C1E-7A9E-461C-B054-0CB8612452C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06B17C1E-7A9E-461C-B054-0CB8612452C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F68217F5-8FB5-443B-92CD-4611513A617D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F68217F5-8FB5-443B-92CD-4611513A617D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F68217F5-8FB5-443B-92CD-4611513A617D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,13 +48,27 @@ Global
 		{87B5C399-D971-4E2B-8D6B-A3FC85417F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87B5C399-D971-4E2B-8D6B-A3FC85417F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87B5C399-D971-4E2B-8D6B-A3FC85417F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9FC60F2-49BF-482F-89F2-525AEBE03693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9FC60F2-49BF-482F-89F2-525AEBE03693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9FC60F2-49BF-482F-89F2-525AEBE03693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9FC60F2-49BF-482F-89F2-525AEBE03693}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2D67AD-E708-415E-8361-B98BBFA62F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2D67AD-E708-415E-8361-B98BBFA62F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2D67AD-E708-415E-8361-B98BBFA62F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2D67AD-E708-415E-8361-B98BBFA62F10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B17C1E-7A9E-461C-B054-0CB8612452C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B17C1E-7A9E-461C-B054-0CB8612452C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B17C1E-7A9E-461C-B054-0CB8612452C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B17C1E-7A9E-461C-B054-0CB8612452C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{06B17C1E-7A9E-461C-B054-0CB8612452C9} = {D6CE9638-906B-4911-B737-847EC0ABFFD7}
 		{F68217F5-8FB5-443B-92CD-4611513A617D} = {A04F2DF4-A577-4C97-83FD-30ABAAB83FEF}
 		{87B5C399-D971-4E2B-8D6B-A3FC85417F91} = {A04F2DF4-A577-4C97-83FD-30ABAAB83FEF}
+		{A9FC60F2-49BF-482F-89F2-525AEBE03693} = {D6CE9638-906B-4911-B737-847EC0ABFFD7}
+		{2D2D67AD-E708-415E-8361-B98BBFA62F10} = {D6CE9638-906B-4911-B737-847EC0ABFFD7}
+		{06B17C1E-7A9E-461C-B054-0CB8612452C9} = {D6CE9638-906B-4911-B737-847EC0ABFFD7}
 	EndGlobalSection
 EndGlobal

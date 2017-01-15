@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06B17C1E-7A9E-461C-B054-0CB8612452C9}</ProjectGuid>
+    <ProjectGuid>{2D2D67AD-E708-415E-8361-B98BBFA62F10}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Eternity.ExampleDriver</RootNamespace>
-    <AssemblyName>Eternity.ExampleDriver</AssemblyName>
+    <RootNamespace>Eternity.ExcelDriver</RootNamespace>
+    <AssemblyName>Eternity.ExcelDriver</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,14 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExampleJsonEternityDriver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Eternity.Core\Eternity.Core.csproj">
-      <Project>{FF967472-3C6B-4293-8915-8DDF2441C132}</Project>
-      <Name>Eternity.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

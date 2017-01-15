@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace Eternity.Core.Tasks
 {
@@ -12,7 +13,7 @@ namespace Eternity.Core.Tasks
                 return;
 
             Running = true;
-            Main();
+            Task.Run(()=> Main());
         }
 
         public void Stop()
